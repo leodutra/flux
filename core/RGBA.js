@@ -64,7 +64,7 @@ flux.RGBA.prototype = {
 
     getRGB: function ()
     {
-        return this.r << 16 | this.g << 8 | this.b;
+        return this.r << 16 | this.g << 8 | this.b >> 0;
     },
 
     getARGB: function ()
