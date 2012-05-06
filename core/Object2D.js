@@ -156,8 +156,7 @@ flux.Object2D.prototype = {
     removeChild: function(child) {
         var i = this._children.indexOf(child);
         if (i !== -1) {
-            this._children.splice(i, 1);
-            child._parent = null;
+            this._children.splice(i, 1)[0]._parent = null;
         }
     },
 
@@ -171,7 +170,7 @@ flux.Object2D.prototype = {
         var children = this._children;
         var i = children.length;
         while (i--) {
-            children[i]._parent = null;
+            children[i]._parent = null; // SHALL NOT use "delete"
         }
         this._children = [];
     },
@@ -180,22 +179,22 @@ flux.Object2D.prototype = {
         if (child && child._parent === this) this.addChildAt(child, index);
     },
 
-    swapChildren: function(childA, childB) {
+    swapChildren: function(child, anotherChild) {
         var children = this._children;
-        if ((childA = children.indexOf(childA)) !== -1 && (childB = children.indexOf(childB)) !== -1) {
-            childA = children[childA];
-            children[childA] = children[childB];
-            children[childB] = childA;
+        if ((child = children.indexOf(child)) !== -1 && (anotherChild = children.indexOf(anotherChild)) !== -1) {
+            child = children[child];
+            children[child] = children[anotherChild];
+            children[anotherChild] = child;
         }
     },
 
-    swapChildrenAt: function(indexA, indexB) {
+    swapChildrenAt: function(index, anotherIndex) {
         var children = this._children;
         var length = children.length;
-        if (-1 < indexA && indexA < length && -1 < indexB && indexB < length) {
-            length = children[indexA];
-            children[indexA] = children[indexB];
-            children[indexB] = length;
+        if (-1 < index && index < length && -1 < anotherIndex && anotherIndex < length) {
+            length = children[index];
+            children[index] = children[anotherIndex];
+            children[anotherIndex] = length;
         }
     }
 };
