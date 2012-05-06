@@ -3,14 +3,14 @@
  * Copyright (c) 2010 Leonardo Dutra Constancio
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
-
-flux.Object2D = function() {
-    if (this instanceof flux.Object2D) {
+flux.Object2D = function ()
+{
+    if (this instanceof flux.Object2D)
+    {
         this._children = [];
         this.setIntensity(1);
     }
 };
-
 flux.Object2D.prototype = {
 
     x: 0,
@@ -22,16 +22,19 @@ flux.Object2D.prototype = {
     _children: null,
     _intensity: 1,
 
-    setXY: function(x, y) {
+    setXY: function (x, y)
+    {
         this.x = x;
         this.y = y;
     },
 
-    getGlobalXY: function() {
+    getGlobalXY: function ()
+    {
         var x = this.x;
         var y = this.y;
         var o = this._parent;
-        while (o) {
+        while (o)
+        {
             x += o.x;
             y += o.y;
             o = o._parent;
@@ -39,24 +42,29 @@ flux.Object2D.prototype = {
         return new flux.V2(x, y);
     },
 
-    setRotationAngle: function(angle) {
+    setRotationAngle: function (angle)
+    {
         this.rotation = 6.283185307179586 * angle / 360; // 6.283185307179586 = Math.PI * 2;
     },
 
-    getRotationAngle: function() {
+    getRotationAngle: function ()
+    {
         return this.rotation * 360 / 6.283185307179586; // 6.283185307179586 = Math.PI * 2;
     },
 
-    setIntensity: function(intensity) {
+    setIntensity: function (intensity)
+    {
         // MUST avoid NaN
         this._intensity = intensity < 1 ? 0 < intensity ? intensity : 0 : 1;
     },
 
-    getIntensity: function() {
+    getIntensity: function ()
+    {
         return this._intensity;
     },
 
-    scale: function(v2, recursive) {
+    scale: function (v2, recursive)
+    {
         //if(recursive)
         //{
         //    var children = this._children;
@@ -68,7 +76,7 @@ flux.Object2D.prototype = {
         //}
     },
 
-    getBounds: function(recursive) // TODO
+    getBounds: function (recursive) // TODO
     {
         //var rect = arguments[1] || new flux.Rectangle(0, 0, 0, 0);
         //if(recursive)
@@ -87,54 +95,67 @@ flux.Object2D.prototype = {
         //return rect;
     },
 
-    getRoot: function() {
+    getRoot: function ()
+    {
         var o = this._parent;
-        if (o) {
-            while (o._parent) {
+        if (o)
+        {
+            while (o._parent)
+            {
                 o = o._parent;
             }
         }
         return o;
     },
 
-    getParent: function() {
+    getParent: function ()
+    {
         return this._parent;
     },
 
-    getChild: function(index) {
+    getChild: function (index)
+    {
         return this._children[index];
     },
 
-    getChildByName: function(name) {
-        if (name) {
+    getChildByName: function (name)
+    {
+        if (name)
+        {
             var children = this._children;
             var i = children.length;
-            while (i--) {
+            while (i--)
+            {
                 if (children[i].name === name) return i;
             }
         }
         return null;
     },
 
-    getChildIndex: function(child) {
+    getChildIndex: function (child)
+    {
         return this._children.indexOf(child);
     },
 
-    getNumChildren: function() {
+    getNumChildren: function ()
+    {
         return this._children.length;
     },
 
-    addChild: function(child) {
-        if (child instanceof flux.Object2D) {
+    addChild: function (child)
+    {
+        if (child instanceof flux.Object2D)
+        {
             child.remove();
             (child._parent = this)._children.push(child);
         }
     },
 
-    addChildAt: function(child, index) {
-
+    addChildAt: function (child, index)
+    {
         //if( typeof index === 'number' && -1 < (index >>= 0) && child instanceof flux.Object2D)
-        if (-1 < parseInt(index, 10) && child instanceof flux.Object2D) {
+        if (-1 < parseInt(index, 10) && child instanceof flux.Object2D)
+        {
             child.remove();
             //var children = this._children;
             //if (index < children.length)
@@ -149,49 +170,61 @@ flux.Object2D.prototype = {
         }
     },
 
-    remove: function() {
+    remove: function ()
+    {
         if (this._parent) this._parent.removeChild(this);
     },
 
-    removeChild: function(child) {
+    removeChild: function (child)
+    {
         var i = this._children.indexOf(child);
-        if (i !== -1) {
+        if (i !== -1)
+        {
             this._children.splice(i, 1)[0]._parent = null;
         }
     },
 
-    removeChildAt: function(index) {
-        if (-1 < index) {
+    removeChildAt: function (index)
+    {
+        if (-1 < index)
+        {
             if (index = this._children.splice(index, 1)[0]) index._parent = null;
         }
     },
 
-    removeAll: function() {
+    removeAll: function ()
+    {
         var children = this._children;
         var i = children.length;
-        while (i--) {
+        while (i--)
+        {
             children[i]._parent = null; // SHALL NOT use "delete"
         }
         this._children = [];
     },
 
-    setChildIndex: function(child, index) {
+    setChildIndex: function (child, index)
+    {
         if (child && child._parent === this) this.addChildAt(child, index);
     },
 
-    swapChildren: function(child, anotherChild) {
+    swapChildren: function (child, anotherChild)
+    {
         var children = this._children;
-        if ((child = children.indexOf(child)) !== -1 && (anotherChild = children.indexOf(anotherChild)) !== -1) {
+        if ((child = children.indexOf(child)) !== -1 && (anotherChild = children.indexOf(anotherChild)) !== -1)
+        {
             child = children[child];
             children[child] = children[anotherChild];
             children[anotherChild] = child;
         }
     },
 
-    swapChildrenAt: function(index, anotherIndex) {
+    swapChildrenAt: function (index, anotherIndex)
+    {
         var children = this._children;
         var length = children.length;
-        if (-1 < index && index < length && -1 < anotherIndex && anotherIndex < length) {
+        if (-1 < index && index < length && -1 < anotherIndex && anotherIndex < length)
+        {
             length = children[index];
             children[index] = children[anotherIndex];
             children[anotherIndex] = length;
