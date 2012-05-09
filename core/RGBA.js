@@ -4,6 +4,7 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/MIT-license.txt)
  */
 
+
 flux.RGBA = function (rrggbb, alpha)
 {
     if (this instanceof flux.RGBA) this.setRGBA(rrggbb, alpha);
@@ -25,7 +26,6 @@ flux.RGBA.randomRGBA = function ()
 {
     return new flux.RGBA(Math.random() * 16777215, Math.random()); // 16777215 == 0xFFFFFF
 };
-
 
 flux.RGBA.prototype = {
     set: function (rgba)
@@ -69,7 +69,7 @@ flux.RGBA.prototype = {
 
     getARGB: function ()
     {
-        return this.alpha * 255 << 32 | this.getRGB();
+        return (this.alpha * 255 << 24) >>> 0 | this.getRGB();
     },
 
     getAlpha: function ()
