@@ -6,19 +6,21 @@
 
 flux.Line = function(p1, p2)
 {
-	if(this instanceof flux.Line)
-
+	if(this instanceof flux.Line) {
+        this.points = [];
 		this.setPoints(p1, p2);
-
+	}
 };
 flux.Line.prototype =
 {
+    points: null,
+
 	setPoints: function(p1, p2)
 	{
-		this.points = [p1 || new flux.V2(0, 0), p2 || new flux.V2(0, 0)];
+		this.points = [p1 || new flux.V2(), p2 || new flux.V2()];
 	},
 	getPoints: function()
 	{
-		return [this.points[1], this.points[2]];
+		return [this.points[0], this.points[1]];
 	}
 };

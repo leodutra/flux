@@ -7,12 +7,13 @@
 flux.Face = function (vertices)
 {
     if (this instanceof flux.Face)
-    {
         this.setVertices(vertices);
-    }
 };
 
 flux.Face.prototype = {
+
+    vertices: null,
+
     set: function (face)
     {
         var vertices = face.vertices;
