@@ -13,3 +13,9 @@ flux.Geometry = function()
 		this.faces = [];
 	}
 };
+
+flux.Geometry.prototype = {
+        points: null,
+    	lines: null,
+		faces: null
+};

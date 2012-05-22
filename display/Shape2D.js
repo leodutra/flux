@@ -8,9 +8,9 @@ flux.Shape2D = function ()
 {
     if (this instanceof flux.Shape2D)
     {
-        this.geometry = new flux.Geometry();
+        this.super_.call(this);
     }
 };
-flux.Shape2D.prototype = {
+flux.Shape2D.prototype = flux.extend(flux.Displayable, {
 
-};
+    });

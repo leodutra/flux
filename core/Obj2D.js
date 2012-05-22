@@ -4,15 +4,15 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Object2D = function ()
+flux.Obj2D = function ()
 {
-    if (this instanceof flux.Object2D)
+    if (this instanceof flux.Obj2D)
     {
         this._children = [];
         this.setIntensity(1);
     }
 };
-flux.Object2D.prototype = {
+flux.Obj2D.prototype = {
 
     x: 0,
     y: 0,
@@ -43,12 +43,12 @@ flux.Object2D.prototype = {
         return new flux.V2(x, y);
     },
 
-    setRotationAngle: function (angle)
+    setAngle: function (angle)
     {
         this.rotation = 6.283185307179586 * angle / 360; // 6.283185307179586 = Math.PI * 2;
     },
 
-    getRotationAngle: function ()
+    getAngle: function ()
     {
         return this.rotation * 360 / 6.283185307179586; // 6.283185307179586 = Math.PI * 2;
     },
@@ -145,7 +145,7 @@ flux.Object2D.prototype = {
 
     addChild: function (child)
     {
-        if (child instanceof flux.Object2D)
+        if (child instanceof flux.Obj2D)
         {
             child.remove();
             (child._parent = this)._children.push(child);
@@ -154,8 +154,8 @@ flux.Object2D.prototype = {
 
     addChildAt: function (child, index)
     {
-        //if( typeof index === 'number' && -1 < (index >>= 0) && child instanceof flux.Object2D)
-        if (-1 < parseInt(index, 10) && child instanceof flux.Object2D)
+        //if( typeof index === 'number' && -1 < (index >>= 0) && child instanceof flux.Obj2D)
+        if (-1 < parseInt(index, 10) && child instanceof flux.Obj2D)
         {
             child.remove();
             //var children = this._children;
@@ -230,5 +230,9 @@ flux.Object2D.prototype = {
             children[index] = children[anotherIndex];
             children[anotherIndex] = length;
         }
+    },
+
+    onTick: function(context) {
+
     }
 };

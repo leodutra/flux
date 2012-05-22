@@ -11,7 +11,7 @@ flux.Sound = function (sources, radius, volume, loop)
 {
     if (this instanceof flux.Sound)
     {
-        flux.Object2D.call(this);
+        this._super_.call(this);
 
         this.isLoaded = this.isPlaying = false;
         this.duration = -1;
@@ -43,50 +43,53 @@ flux.Sound = function (sources, radius, volume, loop)
     }
 };
 
-flux.Sound.prototype = new flux.Object2D();
-flux.Sound.prototype._onLoad = function ()
-{
-    var sound = this.FLUXSound;
-    if (this.FLUXSound.isLoaded) return;
-    this.removeEventListener('canplay', this._onLoad, true);
-    sound.isLoaded = true;
-    sound.duration = this.duration;
-    if (sound.isPlaying) sound.play();
-};
+flux.Sound.prototype = flux.extend(flux.Obj2D, {
 
-flux.Sound.prototype.play = function (startTime)
-{
-
-    this.isPlaying = true;
-    if (this.isLoaded)
+    _onLoad: function ()
     {
-        this._dom.play();
-        if (startTime) this._dom.currentTime = startTime % this.duration;
+        var sound = this.FLUXSound;
+        if (this.FLUXSound.isLoaded) return;
+        this.removeEventListener('canplay', this._onLoad, true);
+        sound.isLoaded = true;
+        sound.duration = this.duration;
+        if (sound.isPlaying) sound.play();
+    },
+
+    play: function (startTime)
+    {
+
+        this.isPlaying = true;
+        if (this.isLoaded)
+        {
+            this._dom.play();
+            if (startTime) this._dom.currentTime = startTime % this.duration;
+        }
+    },
+
+    pause: function ()
+    {
+
+        this.isPlaying = false;
+        this._dom.pause();
+    },
+
+    stop: function ()
+    {
+
+        this.isPlaying = false;
+        this._dom.pause();
+        this._dom.currentTime = 0;
+    },
+
+    calculateVolumeAndPan: function (cameraRelativePosition)
+    {
+
+        // FIXME
+        /*var distance = cameraRelativePosition.length();
+         if(this.radius < distance)
+    	 this.domElement.volume = 0;
+    	 else
+    	 this.domElement.volume = this.volume * (1 - distance/this.radius);*/
     }
-};
 
-flux.Sound.prototype.pause = function ()
-{
-
-    this.isPlaying = false;
-    this._dom.pause();
-};
-
-flux.Sound.prototype.stop = function ()
-{
-
-    this.isPlaying = false;
-    this._dom.pause();
-    this._dom.currentTime = 0;
-};
-
-flux.Sound.prototype.calculateVolumeAndPan = function (cameraRelativePosition)
-{
-
-    // FIXME
-/*var distance = cameraRelativePosition.length();
-	 if(this.radius < distance)
-	 this.domElement.volume = 0;
-	 else
-	 this.domElement.volume = this.volume * (1 - distance/this.radius);*/
-};
+});
