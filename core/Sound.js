@@ -43,7 +43,7 @@ flux.Sound = function (sources, radius, volume, loop)
     }
 };
 
-flux.Sound.prototype = flux.extend(flux.Obj2D, {
+flux.Sound.prototype = flux.extend(flux.Node, {
 
     _onLoad: function ()
     {

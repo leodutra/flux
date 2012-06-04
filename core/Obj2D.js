@@ -4,18 +4,21 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Obj2D = function ()
+flux.Node = function ()
 {
-    if (this instanceof flux.Obj2D)
+    if (this instanceof flux.Node)
     {
         this._children = [];
         this.setIntensity(1);
     }
 };
-flux.Obj2D.prototype = {
+
+flux.Node.prototype = {
 
     x: 0,
     y: 0,
+    scaleX: 0,
+    scaleY: 0,
     rotation: 0,
     name: '',
     hidden: false,
@@ -62,19 +65,6 @@ flux.Obj2D.prototype = {
     getIntensity: function ()
     {
         return this._intensity;
-    },
-
-    scale: function (v2, recursive)
-    {
-        //if(recursive)
-        //{
-        //    var children = this._children;
-        //    var L = children.length;
-        //    for(var i = 0; i < L; i++)
-        //    {
-        //        children[i].scale(v2, recursive);
-        //    }
-        //}
     },
 
     getBounds: function (recursive) // TODO
@@ -145,7 +135,7 @@ flux.Obj2D.prototype = {
 
     addChild: function (child)
     {
-        if (child instanceof flux.Obj2D)
+        if (child instanceof flux.Node)
         {
             child.remove();
             (child._parent = this)._children.push(child);
@@ -154,8 +144,8 @@ flux.Obj2D.prototype = {
 
     addChildAt: function (child, index)
     {
-        //if( typeof index === 'number' && -1 < (index >>= 0) && child instanceof flux.Obj2D)
-        if (-1 < parseInt(index, 10) && child instanceof flux.Obj2D)
+        //if( typeof index === 'number' && -1 < (index >>= 0) && child instanceof flux.Node)
+        if (-1 < parseInt(index, 10) && child instanceof flux.Node)
         {
             child.remove();
             //var children = this._children;
@@ -232,7 +222,8 @@ flux.Obj2D.prototype = {
         }
     },
 
-    onTick: function(context) {
+    onTick: function (context)
+    {
 
-    }
+        }
 };

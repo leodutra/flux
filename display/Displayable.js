@@ -8,7 +8,7 @@ flux.Displayable = function ()
 {
     if (this instanceof flux.Displayable)
     {
-        flux.Obj2D.call(this);
+        flux.Node.call(this);
         this.transform = null;
         // TODO adjust transform for HTML5 Canvas
         this.composite = flux.CompositeMode.SOURCE_OVER;
@@ -20,6 +20,6 @@ flux.Displayable = function ()
     }
 };
 
-flux.Displayable.prototype = flux.extend(new flux.Obj2D, {
+flux.Displayable.prototype = flux.extend(new flux.Node, {
 
     });
