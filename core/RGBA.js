@@ -19,12 +19,12 @@ flux.RGBA.interpolate = function (beginRGBA, finalRGBA, changeAmount)
 
 flux.RGBA.randomRGB = function ()
 {
-    return new flux.RGBA(Math.random() * 16777215); // 16777215 == 0xFFFFFF
+    return new flux.RGBA(Math.random() * 0xFFFFFF);
 };
 
 flux.RGBA.randomRGBA = function ()
 {
-    return new flux.RGBA(Math.random() * 16777215, Math.random()); // 16777215 == 0xFFFFFF
+    return new flux.RGBA(Math.random() * 0xFFFFFF, Math.random());
 };
 
 flux.RGBA.prototype = {
@@ -49,12 +49,12 @@ flux.RGBA.prototype = {
 
     randomRGB: function ()
     {
-        this.setRGB(Math.random() * 16777215); // 16777215 == 0xFFFFFF
+        this.setRGB(Math.random() * 0xFFFFFF);
     },
 
     randomRGBA: function ()
     {
-        this.setRGBA(Math.random() * 16777215, Math.random()); // 16777215 == 0xFFFFFF
+        this.setRGBA(Math.random() * 0xFFFFFF, Math.random());
     },
 
     setAlpha: function (alpha /*= 1*/ )

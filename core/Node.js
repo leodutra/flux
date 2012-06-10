@@ -222,7 +222,7 @@ flux.Node.prototype = {
         }
     },
 
-    onTick: function (context)
+    onEnterFrame: function (context)
     {
 
         }
