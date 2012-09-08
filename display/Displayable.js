@@ -20,6 +20,4 @@ flux.Displayable = function ()
     }
 };
 
-flux.Displayable.prototype = flux.extend(new flux.Node, {
-
-    });
+proto = flux.Displayable.prototype = new flux.Node();

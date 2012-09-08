@@ -50,7 +50,7 @@ flux.Rectangle.prototype = {
     },
     union: function (rect)
     {
-/* IMPORTANT: strings in a more/less comparison return false
+        /* IMPORTANT: strings in a more/less comparison return false
 		 * keep the original value FROM "THIS" OBJECT IN CASE OF FALSE,
 		 * avoiding the use of <instanceof> or <typeof o === 'number'>
 		 */
@@ -73,7 +73,7 @@ flux.Rectangle.prototype = {
     },
     intersects: function (rect) // TODO benchmark Rect.intersects.
     {
-        return !(Math.min(this.x + this.width, rect.x + rect.width) - Math.max(this.x, rect.x) < 0 || Math.min(this.y + this.height, rect.y + rect.height) - Math.max(this.y, rect.y) < 0);
+        return !(min(this.x + this.width, rect.x + rect.width) - max(this.x, rect.x) < 0 || min(this.y + this.height, rect.y + rect.height) - max(this.y, rect.y) < 0);
     },
     equals: function (rect)
     {

@@ -64,12 +64,12 @@ flux.RGBA.prototype = {
 
     getRGB: function ()
     {
-        return this.r << 16 | this.g << 8 | this.b >> 0;
+        return this.r << 16 | this.g << 8 | this.b;
     },
 
     getARGB: function ()
     {
-        return (this.alpha * 255 << 24) >>> 0 | this.getRGB();
+        return (this.alpha * 255 << 24) | this.getRGB();
     },
 
     getAlpha: function ()
@@ -92,7 +92,7 @@ flux.RGBA.prototype = {
 
     toCSSRGBA: function ()
     {
-        return 'rgba(' + (this.r >> 0) + ', ' + (this.g >> 0) + ', ' + (this.b >> 0) + ', ' + this.alpha + ')';
+        return 'rgba(' + this.r + ', ' + this.g + ', ' + this.b + ', ' + this.alpha + ')';
     },
 
     toString: function ()

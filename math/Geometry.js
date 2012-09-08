@@ -4,18 +4,16 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Geometry = function()
-{
-	if(this instanceof flux.Geometry)
-	{
-		this.points = [];
-		this.lines = [];
-		this.faces = [];
-	}
+flux.Geometry = function() {
+    if (this instanceof flux.Geometry) {
+        this.points = [];
+        this.lines = [];
+        this.faces = [];
+    }
 };
 
 flux.Geometry.prototype = {
-        points: null,
-    	lines: null,
-		faces: null
+    points: null,
+    lines: null,
+    faces: null
 };

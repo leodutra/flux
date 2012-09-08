@@ -17,8 +17,8 @@ flux.Node.prototype = {
 
     x: 0,
     y: 0,
-    scaleX: 0,
-    scaleY: 0,
+    scaleX: 1,
+    scaleY: 1,
     rotation: 0,
     name: '',
     hidden: false,
@@ -67,35 +67,29 @@ flux.Node.prototype = {
         return this._intensity;
     },
 
-    getBounds: function (recursive) // TODO
-    {
-        //var rect = arguments[1] || new flux.Rectangle(0, 0, 0, 0);
-        //if(recursive)
-        //{
-        //    var cache;
-        //    var i = (cache = this._children).length;
-        //    while(i--)
-        //    {
-        //        cache[i].getBounds(recursive, rect, 1/*its not origin*/);
-        //    }
-        //    if(arguments[2]/*its origin?*/ && rect.isEmpty())
-        //    {
-        //        rect.x = rect.y = 0;
-        //    }
-        //}
-        //return rect;
-    },
+//    getBounds: function (recursive) // TODO
+//    {
+//        var rect = arguments[1] || new flux.Rectangle(0, 0, 0, 0);
+//        if(recursive)
+//        {
+//            var cache;
+//            var i = (cache = this._children).length;
+//            while(i--)
+//            {
+//                cache[i].getBounds(recursive, rect, 1/*its not origin*/);
+//            }
+//            if(arguments[2]/*its origin?*/ && rect.isEmpty())
+//            {
+//                rect.x = rect.y = 0;
+//            }
+//        }
+//        return rect;
+//    },
 
     getRoot: function ()
     {
-        var o = this._parent;
-        if (o)
-        {
-            while (o._parent)
-            {
-                o = o._parent;
-            }
-        }
+        var o = this;
+        while((o = o._parent));
         return o;
     },
 
@@ -144,18 +138,10 @@ flux.Node.prototype = {
 
     addChildAt: function (child, index)
     {
-        //if( typeof index === 'number' && -1 < (index >>= 0) && child instanceof flux.Node)
-        if (-1 < parseInt(index, 10) && child instanceof flux.Node)
+        
+        if (-1 < index && child instanceof flux.Node)
         {
             child.remove();
-            //var children = this._children;
-            //if (index < children.length)
-            //{
-            //    children.splice(index, 0, child);
-            //}
-            //else {
-            //    children[children.length] = child;
-            //}
             this._children.splice(index, 0, child);
             child._parent = this;
         }
@@ -169,7 +155,7 @@ flux.Node.prototype = {
     removeChild: function (child)
     {
         var i = this._children.indexOf(child);
-        if (i !== -1)
+        if (~i)
         {
             this._children.splice(i, 1)[0]._parent = null;
         }
@@ -202,7 +188,7 @@ flux.Node.prototype = {
     swapChildren: function (child, anotherChild)
     {
         var children = this._children;
-        if ((child = children.indexOf(child)) !== -1 && (anotherChild = children.indexOf(anotherChild)) !== -1)
+        if (~(child = children.indexOf(child)) && ~(anotherChild = children.indexOf(anotherChild)))
         {
             child = children[child];
             children[child] = children[anotherChild];
@@ -222,8 +208,12 @@ flux.Node.prototype = {
         }
     },
 
-    onEnterFrame: function (context)
+    update: function (delay)
     {
 
+        },
+        
+    draw: function(context) {
+        
         }
 };
