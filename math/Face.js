@@ -6,8 +6,7 @@
 
 flux.Face = function (vertices)
 {
-    if (this instanceof flux.Face)
-        this.setVertices(vertices);
+    this.setVertices(vertices);
 };
 
 flux.Face.prototype = {
@@ -40,18 +39,13 @@ flux.Face.prototype = {
     {
         var vertices = this.vertices;
         var quantity = vertices.length;
-        if (quantity === 2)
-        {
-            return [new flux.Line(vertice[1], vertice[2])];
-        }
-        else if (quantity < 2)
-        {
-            return [];
+        if (quantity < 3) {
+            return [];   
         }
         var edges = [];
         for (var i = 0; i < quantity;)
         {
-            edges[i] = new flux.Line(vertice[i], ++i === quantity ? vertice[0] : vertice[i]);
+            edges.push(new flux.Line(vertice[i], ++i === quantity ? vertice[0] : vertice[i]));
         }
     }
 };

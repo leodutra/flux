@@ -20,4 +20,7 @@ flux.Displayable = function ()
     }
 };
 
-proto = flux.Displayable.prototype = new flux.Node();
+_ = flux.Displayable.prototype = new flux.Node();
+_.draw = function(context, relative) {
+        
+};

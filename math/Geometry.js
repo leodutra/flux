@@ -5,11 +5,9 @@
  */
 
 flux.Geometry = function() {
-    if (this instanceof flux.Geometry) {
-        this.points = [];
-        this.lines = [];
-        this.faces = [];
-    }
+    this.points = [];
+    this.lines = [];
+    this.faces = [];
 };
 
 flux.Geometry.prototype = {

@@ -7,7 +7,7 @@ flux = {};
 
 var PI = Math.PI,
     PIx2  = PI * 2,
-    proto;
+    _;
     
 
 function ceil(n) {

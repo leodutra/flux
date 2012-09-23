@@ -211,9 +211,6 @@ flux.Node.prototype = {
     update: function (delay)
     {
 
-        },
-        
-    draw: function(context) {
-        
         }
+   
 };

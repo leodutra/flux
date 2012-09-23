@@ -1,16 +1,12 @@
 /*
-/*
  * Flux JavaScript Library
  * Copyright (c) 2010 Leonardo Dutra Constancio
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 flux.V2 = function (x, y)
 {
-    if (this instanceof flux.V2)
-    {
-        this.x = x || 0;
-        this.y = y || 0;
-    }
+    this.x = x || 0;
+    this.y = y || 0;
 };
 flux.V2.interpolate = function (vInitial, vFinal, changeAmount)
 {
