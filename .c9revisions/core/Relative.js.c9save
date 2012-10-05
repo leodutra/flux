@@ -1,3 +1,0 @@
-{"ts":1348295259335,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1348295320017,"patch":[[{"diffs":[[1,"/*\r\n * Flux JavaScript Library\r\n * Copyright (c) 2010 Leonardo Dutra Constancio\r\n * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)\r\n */\r\n\r\nflux.Relative = function () {};\r\n\r\nflux.Relative.prototype = {\r\n    x: 0,\r\n    y: 0,\r\n    rotation: 0\r\n};"]],"start1":0,"start2":0,"length1":0,"length2":266}]],"length":266,"saved":false}
-{"ts":1348295322989,"patch":[[{"diffs":[[0,"() {};\r\n"],[-1,"\r\n"],[0,"flux.Rel"]],"start1":186,"start2":186,"length1":18,"length2":16}]],"length":264,"saved":false}
