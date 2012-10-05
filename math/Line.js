@@ -6,7 +6,7 @@
 
 flux.Line = function(a, b)
 {
-	this.setPoints(a, b);
+    this.setPoints(a, b);
 };
 flux.Line.prototype =
 {
@@ -16,6 +16,7 @@ flux.Line.prototype =
 	{
 		this.points = [a, b];
 	},
+    
 	getPoints: function()
 	{
 		return this.points;

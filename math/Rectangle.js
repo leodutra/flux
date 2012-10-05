@@ -6,12 +6,16 @@
 
 flux.Rectangle = function (x, y, width, height)
 {
-    this.x = x || 0;
-    this.y = y || 0;
-    this.width = width || 0;
-    this.height = height || 0;
+    if (x) this.x = x;
+    if (y) this.y = y;
+    if (width) this.width = width;
+    if (height) this.height = height;
 };
 flux.Rectangle.prototype = {
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
 
     set: function (rect)
     {

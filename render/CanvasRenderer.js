@@ -5,8 +5,6 @@
  */
 
 flux.CanvasRenderer = function () {
-    if(this instanceof flux.CanvasRenderer) {
-        flux.Renderer.call(this);    
-    }    
+    flux.Renderer.call(this);    
 };
 _ = flux.CanvasRenderer.prototype = new flux.Renderer();

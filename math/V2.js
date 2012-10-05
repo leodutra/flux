@@ -5,14 +5,16 @@
  */
 flux.V2 = function (x, y)
 {
-    this.x = x || 0;
-    this.y = y || 0;
+    if (x) this.x = x;
+    if (y) this.y = y;
 };
 flux.V2.interpolate = function (vInitial, vFinal, changeAmount)
 {
     return new flux.V2((1 - changeAmount) * vInitial.x + changeAmount * vFinal.x, (1 - changeAmount) * vInitial.y + changeAmount * vFinal.y);
 };
 flux.V2.prototype = {
+    x: 0,
+    y: 0,
 
     set: function (v)
     {

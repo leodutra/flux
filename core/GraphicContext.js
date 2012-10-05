@@ -9,10 +9,7 @@
 
 flux.GraphicContext = function (context2D)
 {
-    if (this instanceof flux.GraphicContext)
-    {
-        this.ctx = context2D;
-    }
+    this.ctx = context2D;
 };
 
 flux.GraphicContext.prototype = {

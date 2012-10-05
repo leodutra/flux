@@ -3,7 +3,7 @@
  * Copyright (c) 2010 Leonardo Dutra Constancio
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
-flux = {};
+window.flux = {};
 
 var PI = Math.PI,
     PIx2  = PI * 2,
@@ -14,16 +14,15 @@ function ceil(n) {
     return n % 1 ? (n > 0 ? n + 1 : n) | 0 : n;
 }
 
-function abs(n) {
-    return n < 0 ? -n : n;
-}
-
 function floor(n) {
     return n % 1 ? (n > 0 ? n : n - 1) | 0 : n;
 }
 
+function abs(n) {
+    return 0 > n ? -n : n;
+}
 function round(n) {
-    return (n < 0 ? -0.5 : 0.5) + n | 0;
+    return(0 > n ? -0.5 : 0.5) + n | 0;
 }
 
 function max(a, b) {
@@ -33,6 +32,18 @@ function max(a, b) {
 function min(a, b) {
     return a < b ? a : b;
 }
+
+function clamp(n, min, max) {
+	return min < n ? n < max ? n : max : min;
+}
+
+function randomFrom(min, max) {
+    return Math.random() * (max - min) + min; 
+}
+
+//function sign(x) {
+//    return x > 0 ? 1 : x < 0 ? -1 : 0;
+//}
 
 function extend(super_, extension)
 {

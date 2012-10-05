@@ -7,9 +7,8 @@
 
 flux.RGBA = function (rrggbb, alpha)
 {
-    if (this instanceof flux.RGBA) this.setRGBA(rrggbb, alpha);
+    this.setRGBA(rrggbb, alpha);
 };
-
 
 // STATIC
 flux.RGBA.interpolate = function (beginRGBA, finalRGBA, changeAmount)

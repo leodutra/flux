@@ -9,8 +9,7 @@
 
 flux.Sound = function (sources, radius, volume, loop)
 {
-    if (this instanceof flux.Sound)
-    {
+
         this._super_.call(this);
 
         this.isLoaded = this.isPlaying = false;
@@ -40,7 +39,6 @@ flux.Sound = function (sources, radius, volume, loop)
                 // is it ok?
             }
         }
-    }
 };
 
 flux.Sound.prototype = flux.extend(flux.Node, {
