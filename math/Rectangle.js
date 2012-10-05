@@ -12,6 +12,7 @@ flux.Rectangle = function (x, y, width, height)
     if (height) this.height = height;
 };
 flux.Rectangle.prototype = {
+    
     x: 0,
     y: 0,
     width: 0,

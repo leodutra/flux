@@ -14,7 +14,7 @@ flux.Line.prototype =
 
 	setPoints: function(a, b)
 	{
-		this.points = [a, b];
+		this.points = [a || new flux.V2(), b || new flux.V2()];
 	},
     
 	getPoints: function()

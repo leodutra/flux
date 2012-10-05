@@ -3,6 +3,7 @@
  * Copyright (c) 2010 Leonardo Dutra Constancio
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
+
 flux.V2 = function (x, y)
 {
     if (x) this.x = x;

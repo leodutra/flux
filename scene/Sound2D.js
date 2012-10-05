@@ -14,15 +14,16 @@ flux.Sound2D = function (sources, radius, volume, loop)
     this.sound = new flux.Sound(sources, volume, loop);
 };
 
-_ = flux.Sound2D.prototype = flux.Node();
-_.radius = 0;
-_.sound = null;
-
-_.calculateVolumeAndPan = function(v2) {
+flux.Sound2D.prototype = extend(flux.Node, {
+    radius: 0,
+    sound: null,
     
-    var distance = cameraRelativePosition.length();
-    if(this.radius < distance)
-    this.domElement.volume = 0;
-    else
-    this.domElement.volume = this.volume * (1 - distance/this.radius);
-};
+    calculateVolumeAndPan: function(v2) {
+        
+        var distance = cameraRelativePosition.length();
+        if(this.radius < distance)
+        this.domElement.volume = 0;
+        else
+        this.domElement.volume = this.volume * (1 - distance/this.radius);
+    }
+});

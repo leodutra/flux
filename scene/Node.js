@@ -16,6 +16,8 @@ flux.Node.prototype = {
     y: 0,
     scaleX: 1,
     scaleY: 1,
+    skewX: 0,
+    skewY: 0,
     rotation: 0,
     name: '',
     hidden: false,
@@ -28,6 +30,7 @@ flux.Node.prototype = {
         this.x = x;
         this.y = y;
     },
+    setXYV2: flux.V2.prototype.set,
 
     getGlobalXY: function ()
     {

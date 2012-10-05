@@ -17,7 +17,8 @@ flux.Displayable = function ()
     // TODO mask?
 };
 
-_ = flux.Displayable.prototype = new flux.Node();
-_.draw = function(context) {
+flux.Displayable.prototype = extend(flux.Node, {
+    draw: function(context) {
         
-};
+    }
+});

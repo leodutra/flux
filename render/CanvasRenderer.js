@@ -7,4 +7,4 @@
 flux.CanvasRenderer = function () {
     flux.Renderer.call(this);    
 };
-_ = flux.CanvasRenderer.prototype = new flux.Renderer();
+flux.CanvasRenderer.prototype = extend(new flux.Renderer, {});

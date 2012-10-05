@@ -9,7 +9,8 @@ flux.Shape = function ()
     this.Displayable.call(this);
 };
 
-_ = flux.Shape.prototype = new flux.Displayable();
-_.draw = function(context, relative) {
-    context.drawLine(relative.x + a.x, relative.y + a.y, relative.x + b.x, relative.y + b.y);
-}
+flux.Shape.prototype = extend(flux.Displayable, {
+    draw: function(context, relative) {
+        context.drawLine(relative.x + a.x, relative.y + a.y, relative.x + b.x, relative.y + b.y);
+    }
+});

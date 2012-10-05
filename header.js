@@ -3,8 +3,11 @@
  * Copyright (c) 2010 Leonardo Dutra Constancio
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
-window.flux = {};
+ 
+var flux = {};
 
+(function(window, undefined) {
+    
 var PI = Math.PI,
     PIx2  = PI * 2,
     _;
