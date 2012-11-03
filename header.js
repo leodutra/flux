@@ -8,10 +8,12 @@ var flux = {};
 
 (function(window, undefined) {
 	    
-	var PI = Math.PI,
-	    PIx2  = PI * 2,
-	    _;
-	    
+	var PI = Math.PI;
+	var PIx2 = PI * 2;
+    var DEF_COLOR = '#777';
+    var DEF_LINE_CAP = 'butt';
+    var DEF_JOIN_STYLE = 'mitter';
+    var DEF_MITTER_LIMIT = 10;
 	
 	function ceil(n) {
 	    return n % 1 ? (n > 0 ? n + 1 : n) | 0 : n;
@@ -48,16 +50,16 @@ var flux = {};
 	//    return x > 0 ? 1 : x < 0 ? -1 : 0;
 	//}
 	
-	function extend(super_, extension)
+	function extend(_super_, extension)
 	{
 	    var base = function () {};
-	    base.prototype = new super_();
+	    base.prototype = new _super_();
 	    base = new base();
 	    for (var property in extension)
 	    {
 	        base[property] = extension[property];
 	    }
-	    base.super_ = super_;
+	    base._super_ = _super_;
 	    return base;
 	}
 	

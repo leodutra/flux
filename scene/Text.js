@@ -4,12 +4,20 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Sprite = function (width, height)
+flux.Text = function (value, font, align, baseline)
 {
     this._super_.call(this);
+    this.font = font || new flux.Font();
 };
 
-flux.Sprite.prototype = extend(flux.CanvasWrap, {
+flux.Text.prototype = extend(flux.Displayable, {
+    
+    font: null,
+    align: 'start', 
+    baseline: 'alphabetic',
+    value: '',
+    
+    
     draw: function(context, globals) {
         // TODO DRAW OVERRIDE
     }

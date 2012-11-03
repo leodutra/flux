@@ -25,11 +25,7 @@ flux.Node.prototype = {
     _children: null,
     _intensity: 1,
 
-    setXY: function (x, y)
-    {
-        this.x = x;
-        this.y = y;
-    },
+    setXY: flux.V2.prototype.setXY,
     setXYV2: flux.V2.prototype.set,
 
     getGlobalXY: function ()
@@ -44,6 +40,32 @@ flux.Node.prototype = {
             o = o._parent;
         }
         return new flux.V2(x, y);
+    },
+    
+    getGlobals: function ()
+    {
+        var x = this.x;
+        var y = this.y;
+        var rotation = this.rotation;
+        var scaleX = this.scaleX;
+        var scaleY = this.scaleY;
+        var intensity = this.intensity;
+        var skeyX = this.skeyX;
+        var skewY = this.skewY;
+        var o = this._parent;
+        while (o)
+        {
+            x += o.x;
+            y += o.y;
+            rotation += o.rotation;
+            scaleX += o.scaleX;
+            scaleY += o.scaleY;
+            intensity += o.intensity;
+            skeyX += o.skeyX;
+            skewY += o.skewY;
+            o += o._parent;
+        }
+        return new flux.Global(x, y, rotation, scaleX, scaleY, intensity, skeyX, skewY);
     },
 
     setAngle: function (angle)
@@ -208,7 +230,7 @@ flux.Node.prototype = {
         }
     },
 
-    update: function (delay)
+    update: function (delay, globals)
     {
 
         }

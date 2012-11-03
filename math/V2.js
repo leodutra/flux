@@ -21,47 +21,56 @@ flux.V2.prototype = {
     {
         this.x = v.x;
         this.y = v.y;
+        return this;
     },
 
     setXY: function (x, y)
     {
         this.x = x;
         this.y = y;
+        return this;
     },
     add: function (v)
     {
         this.x += v.x;
         this.y += v.y;
+        return this;
     },
     addXY: function (x, y)
     {
         this.x += x;
         this.y += y;
+        return this;
     },
     sub: function (v)
     {
         this.x -= v.x;
         this.y -= v.y;
+        return this;
     },
     multScalar: function (s)
     {
         this.x *= s;
         this.y *= s;
+        return this;
     },
     divScalar: function (s)
     {
         this.x /= s;
         this.y /= s;
+        return this;
     },
     min: function (v)
     {
         if (v.x < this.x) this.x = v.x;
         if (v.y < this.y) this.y = v.y;
+        return this;
     },
     max: function (v)
     {
         if (this.x < v.x) this.x = v.x;
         if (this.y < v.y) this.y = v.y;
+        return this;
     },
     isValid: function ()
     {
@@ -69,7 +78,8 @@ flux.V2.prototype = {
     },
     clone: function ()
     {
-        return this.isValid() ? new flux.V2(this.x, this.y) : new flux.V2();
+        //return this.isValid() ? new flux.V2(this.x, this.y) : new flux.V2();
+        return new flux.V2(this.x, this.y);
     },
     lengthSqr: function ()
     {
@@ -83,15 +93,17 @@ flux.V2.prototype = {
     {
         this.x = (1 - changeAmount) * vInitial.x + changeAmount * vFinal.x;
         this.y = (1 - changeAmount) * vInitial.y + changeAmount * vFinal.y;
+        return this;
     },
     interpolateSelf: function (vFinal, changeAmount)
     {
-        this.interpolate(this, vFinal, changeAmount);
+        return this.interpolate(this, vFinal, changeAmount);
     },
     normalize: function (length)
     {
         if ((length = length || this.length())) this.divScalar(length);
         else this.x = this.y = 0;
+        return this;
     },
     distanceSqr: function (v)
     {

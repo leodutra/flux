@@ -5,7 +5,7 @@
  */
 flux.Particle = function (color, mass, width, speed, acceleration, x, y)
 {
-   flux.V2.call(this, x, y);
+   this._super_.call(this, x, y);
    if (color) this.color = color;
    if (mass) this.mass = mass;
    if (width) this.width = width;
@@ -16,8 +16,8 @@ flux.Particle = function (color, mass, width, speed, acceleration, x, y)
 
 flux.Particle.prototype = extend(flux.V2, {
     
-    color: '#777',
-    width: 0,
+    color: DEF_COLOR,
+    width: 1,
     mass: 0,
     speed: null,
     acceleration: null,

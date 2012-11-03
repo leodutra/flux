@@ -12,24 +12,25 @@ flux.CanvasWrap = function (width, height)
     e.height = height;
 };
 
-_ = flux.CanvasWrap.prototype = new flux.Displayable();
-
-_._canvas = null;
-
-_.getContext2D = function() {
-    return this._canvas.getContext('2d');
-};
-
-_.getCanvas = function() {
-    return this._canvas;
-};
-
-_.draw = function(context, relative) {
-    context.drawImage(
-        this._canvas,
-        relative.x + this.x,
-        relative.y + this.y,
-        this._element.width * (relative.scaleX * this.scaleX),
-        this._element.height * (relative.scaleY * this.scaleY)
-    );
-};
+flux.CanvasWrap.prototype = extend(flux.Displayable(), {
+    
+    _canvas: null,
+    
+    getContext2D: function() {
+        return this._canvas.getContext('2d');
+    },
+    
+    getCanvas: function() {
+        return this._canvas;
+    },
+    
+    draw: function(context, relative) {
+        context.drawImage(
+            this._canvas,
+            relative.x + this.x,
+            relative.y + this.y,
+            this._element.width * (relative.scaleX * this.scaleX),
+            this._element.height * (relative.scaleY * this.scaleY)
+        );
+    }
+});

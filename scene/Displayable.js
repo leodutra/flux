@@ -6,7 +6,7 @@
 
 flux.Displayable = function ()
 {
-    flux.Node.call(this);
+    this._super_.call(this);
     this.transform = null;
     // TODO adjust transform for HTML5 Canvas
     this.composite = flux.CompositeMode.SOURCE_OVER;
@@ -18,7 +18,7 @@ flux.Displayable = function ()
 };
 
 flux.Displayable.prototype = extend(flux.Node, {
-    draw: function(context) {
+    draw: function(context, globals) {
         
     }
 });

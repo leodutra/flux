@@ -12,7 +12,7 @@ flux.Rectangle = function (x, y, width, height)
     if (height) this.height = height;
 };
 flux.Rectangle.prototype = {
-    
+
     x: 0,
     y: 0,
     width: 0,
@@ -20,8 +20,7 @@ flux.Rectangle.prototype = {
 
     set: function (rect)
     {
-        this.setXYV2(rect);
-        this.setSize(rect);
+        return this.setXYV2(rect).setSize(rect);
     },
     setXY: flux.V2.prototype.setXY,
     setXYV2: flux.V2.prototype.set,
@@ -30,7 +29,9 @@ flux.Rectangle.prototype = {
     {
         this.width = width;
         this.height = height;
+        return this;
     },
+
     clone: function ()
     {
         return new flux.Rectangle(this.x, this.y, this.width, this.height);
@@ -41,6 +42,7 @@ flux.Rectangle.prototype = {
         this.width += 2 * width;
         this.y -= height;
         this.height += 2 * height;
+        return this;
     },
     inflateV2: function (v2)
     {
@@ -53,13 +55,14 @@ flux.Rectangle.prototype = {
     union: function (rect)
     {
         /* IMPORTANT: strings in a more/less comparison return false
-		 * keep the original value FROM "THIS" OBJECT IN CASE OF FALSE,
-		 * avoiding the use of <instanceof> or <typeof o === 'number'>
-		 */
+         * keep the original value FROM "THIS" OBJECT IN CASE OF FALSE,
+         * avoiding the use of <instanceof> or <typeof o === 'number'>
+         */
         this.x = rect.x < this.x ? rect.x : this.x;
         this.y = rect.y < this.y ? rect.y : this.y;
         this.width = this.width < rect.width ? rect.width : this.width;
         this.height = this.height < rect.height ? rect.height : this.height;
+        return this;
     },
     contains: function (x, y)
     {

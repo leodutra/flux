@@ -21,9 +21,11 @@ flux.Sound2D.prototype = extend(flux.Node, {
     calculateVolumeAndPan: function(v2) {
         
         var distance = cameraRelativePosition.length();
-        if(this.radius < distance)
-        this.domElement.volume = 0;
-        else
-        this.domElement.volume = this.volume * (1 - distance/this.radius);
+        if(this.radius < distance) {
+            this.domElement.volume = 0;
+        }
+        else {
+            this.domElement.volume = this.volume * (1 - distance/this.radius);
+        }
     }
 });

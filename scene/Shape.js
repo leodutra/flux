@@ -6,11 +6,11 @@
 
 flux.Shape = function ()
 {
-    this.Displayable.call(this);
+    this._super_.call(this);
 };
 
 flux.Shape.prototype = extend(flux.Displayable, {
-    draw: function(context, relative) {
-        context.drawLine(relative.x + a.x, relative.y + a.y, relative.x + b.x, relative.y + b.y);
+    draw: function(context, globals) {
+        context.drawLine(a.x, a.y, b.x, b.y);
     }
 });

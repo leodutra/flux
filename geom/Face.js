@@ -9,7 +9,7 @@ flux.Face = function (vertices)
     this.setVertices(vertices);
 };
 
-flux.Face.prototype = {
+flux.Face.prototype = extend(flux.Geometry, {
 
     vertices: null,
 
@@ -28,6 +28,7 @@ flux.Face.prototype = {
     setVertices: function (vertices)
     {
         this.vertices = vertices || [];
+        return this;
     },
 
     getVertices: function ()
@@ -48,4 +49,4 @@ flux.Face.prototype = {
             edges.push(new flux.Line(vertice[i], ++i === quantity ? vertice[0] : vertice[i]));
         }
     }
-};
+});
