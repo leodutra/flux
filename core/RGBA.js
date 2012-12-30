@@ -33,32 +33,38 @@ flux.RGBA.prototype = {
         this.g = rgba.g;
         this.b = rgba.b;
         this.alpha = rgba.alpha;
+        return this;
     },
     setRGBA: function (rrggbb, alpha)
     {
         this.setRGB(rrggbb);
         this.setAlpha(alpha);
+        return this;
     },
     setRGB: function (rrggbb)
     {
         this.r = rrggbb >> 16 & 255;
         this.g = rrggbb >> 8 & 255;
         this.b = rrggbb & 255;
+        return this;
     },
 
     randomRGB: function ()
     {
         this.setRGB(Math.random() * 0xFFFFFF);
+        return this;
     },
 
     randomRGBA: function ()
     {
         this.setRGBA(Math.random() * 0xFFFFFF, Math.random());
+        return this;
     },
 
     setAlpha: function (alpha /*= 1*/ )
     {
         this.alpha = alpha < 1 ? 0 < alpha ? alpha : 0 : 1; /*This MUST avoid NaN*/
+        return this;
     },
 
     getRGB: function ()
@@ -82,6 +88,7 @@ flux.RGBA.prototype = {
         this.g = (1 - changeAmount) * this.g + changeAmount * finalRGBA.g;
         this.b = (1 - changeAmount) * this.b + changeAmount * finalRGBA.b;
         this.alpha = (1 - changeAmount) * this.alpha + changeAmount * finalRGBA.alpha;
+        return this;
     },
 
     toCSSHex: function ()

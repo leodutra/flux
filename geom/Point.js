@@ -10,13 +10,10 @@ flux.Point = function (color, x, y, width)
     if (width || width === 0) this.width = width;
 };
 
-flux.Point.prototype = extend(flux.Geometric,
+flux.Point.prototype = extend(flux.V2,
 {
     width: 1,
     color: DEF_COLOR,
-    cap: DEF_LINE_CAP,
-    joinStyle: DEF_JOIN_STYLE,
-    mitterLimit: DEF_MITTER_LIMIT,
     
     clone: function ()
     {

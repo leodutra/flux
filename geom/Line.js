@@ -11,8 +11,12 @@ flux.Line = function(a, b, color, width)
     if (width) this.width = width;
 };
 
-flux.Line.prototype = extend(flux.Geometric, {
+flux.Line.prototype = {
+    
     points: null,
+    
+    width: 1,
+    color: DEF_COLOR,
 
 	setPoints: function(a, b)
 	{
@@ -28,4 +32,4 @@ flux.Line.prototype = extend(flux.Geometric, {
     clone: function() {
         return new Line(this.points[0].clone(), this.points[1].clone(), this.width);
     }
-});
+};

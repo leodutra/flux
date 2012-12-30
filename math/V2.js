@@ -122,8 +122,11 @@ flux.V2.prototype = {
     {
         return this.x === v.x && this.y === v.y;
     },
+    toJSON: function () {
+        return '{x:'+this.x+',y:'+this.y+'}';
+    },
     toString: function ()
     {
-        return 'V2(x=' + this.x + ', y=' + this.y + ')';
+        return this.toJSON();
     }
 };

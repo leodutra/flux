@@ -32,12 +32,11 @@ flux.Node.prototype = {
     {
         var x = this.x;
         var y = this.y;
-        var o = this._parent;
-        while (o)
+        var o;
+        while ((o = this._parent))
         {
             x += o.x;
             y += o.y;
-            o = o._parent;
         }
         return new flux.V2(x, y);
     },

@@ -11,6 +11,6 @@ flux.Shape = function ()
 
 flux.Shape.prototype = extend(flux.Displayable, {
     draw: function(context, globals) {
-        context.drawLine(a.x, a.y, b.x, b.y);
+        
     }
 });

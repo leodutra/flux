@@ -83,5 +83,11 @@ flux.Rectangle.prototype = {
     equals: function (rect)
     {
         return this.x === rect.x && this.y === rect.y && this.width === rect.width && this.height === rect.height;
+    },
+    toJSON: function() {
+        return '{x:'+this.x+',y:'+this.y+',width:'+this.width+',height:'+this.height+'}';
+    },
+    toString: function() {
+        return this.toJSON();
     }
 };
