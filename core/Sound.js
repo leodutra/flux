@@ -10,38 +10,39 @@
 flux.Sound = function (sources, radius, volume, loop)
 {
 
-        this._super_.call(this);
+    this._super_.call(this);
 
-        this.isLoaded = this.isPlaying = false;
-        this.duration = -1;
-        this.radius = radius;
+    this.isLoaded = this.isPlaying = false;
+    this.duration = -1;
+    this.radius = radius;
 
-        var audio = this._dom = new Audio();
-        audio.FLUXSound = this;
-        audio.pan = audio.volume = 0;
-        audio.loop = loop === undefined ? true : loop;
+    var audio = this._dom = new Audio();
+    audio.FLUXSound = this;
+    audio.pan = audio.volume = 0;
+    audio.loop = loop === undefined ? true : loop;
 
-        this.sources = sources = sources instanceof Array ? sources : [sources];
+    this.sources = sources = sources instanceof Array ? sources : [sources];
 
-        var L = sources.length;
-        var cache;
-        for (var i = 0; i < L;)
+    var L = sources.length;
+    var cache;
+    for (var i = 0; i < L;)
+    {
+        cache = sources[i].toLowerCase();
+        cache = cache.indexOf('.mp3') !== -1 ? 'audio/mpeg' : cache.indexOf('.ogg') !== -1 ? 'audio/ogg' : cache.indexOf('.wav') !== -1 ? 'audio/wav' : 0;
+        if (audio.canPlayType(cache))
         {
-            cache = sources[i].toLowerCase();
-            cache = cache.indexOf('.mp3') !== -1 ? 'audio/mpeg' : cache.indexOf('.ogg') !== -1 ? 'audio/ogg' : cache.indexOf('.wav') !== -1 ? 'audio/wav' : 0;
-            if (audio.canPlayType(cache))
-            {
-                (cache = document.createElement('source')).src = this.sources[i];
-                audio.appendChild(cache);
-                audio.addEventListener('canplay', this._onLoad, true);
-                audio.load();
-                break;
-                // is it ok?
-            }
+            (cache = document.createElement('source')).src = this.sources[i];
+            audio.appendChild(cache);
+            audio.addEventListener('canplay', this._onLoad, true);
+            audio.load();
+            break;
+            // is it ok?
         }
+    }
 };
 
-flux.Sound.prototype = flux.extend(flux.Node, {
+flux.Sound.prototype = flux.extend(flux.Node,
+{
 
     _onLoad: function ()
     {

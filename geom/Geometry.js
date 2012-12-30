@@ -4,7 +4,8 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Geometry = function() {
+flux.Geometry = function ()
+{
     this.points = [];
     this.lines = [];
     this.faces = [];

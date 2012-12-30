@@ -14,7 +14,7 @@ flux.Point.prototype = extend(flux.V2,
 {
     width: 1,
     color: DEF_COLOR,
-    
+
     clone: function ()
     {
         return new flux.Point(this.color, this.x, this.y, this.width);

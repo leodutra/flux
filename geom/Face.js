@@ -12,7 +12,7 @@ flux.Face = function (vertices)
 flux.Face.prototype = {
 
     vertices: null,
-    
+
     color: DEF_COLOR,
 
     set: function (face)
@@ -42,8 +42,9 @@ flux.Face.prototype = {
     {
         var vertices = this.vertices;
         var quantity = vertices.length;
-        if (quantity < 3) {
-            return [];   
+        if (quantity < 3)
+        {
+            return [];
         }
         var edges = Array(quantity);
         var color = this.color;
