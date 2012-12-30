@@ -7,8 +7,7 @@
  Reference: Three.js (mikael emtinger http://gomo.se/)
  */
 
-flux.Sound = function (sources, radius, volume, loop)
-{
+flux.Sound = function (sources, radius, volume, loop) {
 
     this._super_.call(this);
 
@@ -25,12 +24,10 @@ flux.Sound = function (sources, radius, volume, loop)
 
     var L = sources.length;
     var cache;
-    for (var i = 0; i < L;)
-    {
+    for (var i = 0; i < L;) {
         cache = sources[i].toLowerCase();
         cache = cache.indexOf('.mp3') !== -1 ? 'audio/mpeg' : cache.indexOf('.ogg') !== -1 ? 'audio/ogg' : cache.indexOf('.wav') !== -1 ? 'audio/wav' : 0;
-        if (audio.canPlayType(cache))
-        {
+        if (audio.canPlayType(cache)) {
             (cache = document.createElement('source')).src = this.sources[i];
             audio.appendChild(cache);
             audio.addEventListener('canplay', this._onLoad, true);
@@ -41,11 +38,9 @@ flux.Sound = function (sources, radius, volume, loop)
     }
 };
 
-flux.Sound.prototype = flux.extend(flux.Node,
-{
+flux.Sound.prototype = flux.extend(flux.Node, {
 
-    _onLoad: function ()
-    {
+    _onLoad: function () {
         var sound = this.FLUXSound;
         if (this.FLUXSound.isLoaded) return;
         this.removeEventListener('canplay', this._onLoad, true);
@@ -54,34 +49,29 @@ flux.Sound.prototype = flux.extend(flux.Node,
         if (sound.isPlaying) sound.play();
     },
 
-    play: function (startTime)
-    {
+    play: function (startTime) {
 
         this.isPlaying = true;
-        if (this.isLoaded)
-        {
+        if (this.isLoaded) {
             this._dom.play();
             if (startTime) this._dom.currentTime = startTime % this.duration;
         }
     },
 
-    pause: function ()
-    {
+    pause: function () {
 
         this.isPlaying = false;
         this._dom.pause();
     },
 
-    stop: function ()
-    {
+    stop: function () {
 
         this.isPlaying = false;
         this._dom.pause();
         this._dom.currentTime = 0;
     },
 
-    calculateVolumeAndPan: function (cameraRelativePosition)
-    {
+    calculateVolumeAndPan: function (cameraRelativePosition) {
 
         // FIXME
         /*var distance = cameraRelativePosition.length();

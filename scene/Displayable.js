@@ -4,8 +4,7 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Displayable = function ()
-{
+flux.Displayable = function () {
     this._super_.call(this);
     this.transform = null;
     // TODO adjust transform for HTML5 Canvas
@@ -18,7 +17,7 @@ flux.Displayable = function ()
 };
 
 flux.Displayable.prototype = extend(flux.Node, {
-    draw: function(context, globals) {
-        
+    draw: function (context, globals) {
+
     }
 });

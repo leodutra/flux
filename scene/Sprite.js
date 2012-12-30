@@ -4,13 +4,12 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Sprite = function (width, height)
-{
+flux.Sprite = function (width, height) {
     this._super_.call(this);
 };
 
 flux.Sprite.prototype = extend(flux.CanvasWrap, {
-    draw: function(context, globals) {
+    draw: function (context, globals) {
         // TODO DRAW OVERRIDE
     }
 });

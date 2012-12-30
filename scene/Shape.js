@@ -4,13 +4,12 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Shape = function ()
-{
+flux.Shape = function () {
     this._super_.call(this);
 };
 
 flux.Shape.prototype = extend(flux.Displayable, {
-    draw: function(context, globals) {
-        
+    draw: function (context, globals) {
+
     }
 });

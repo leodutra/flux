@@ -7,13 +7,12 @@
 
 // TODO SHALL WRAP WEBGL, SVG AND 2D CONTEXT FOR EASY DRAWING
 
-flux.GraphicContext = function (context2D)
-{
+flux.GraphicContext = function (context2D) {
     this.ctx = context2D;
 };
 
 flux.GraphicContext.prototype = {
-    
-    
-    
+
+
+
 };

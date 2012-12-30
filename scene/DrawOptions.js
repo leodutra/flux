@@ -4,11 +4,11 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
+flux.DrawOptions = function () {};
+flux.DrawOptions.prototype = {
 
-flux.Font = function () {};
+    cap: DEF_LINE_CAP,
+    joinStyle: DEF_JOIN_STYLE,
+    mitterLimit: DEF_MITTER_LIMIT
 
-flux.Font.prototype = {
-    size: 10,
-    families: 'sans-serif',
-    weight: 1
 };

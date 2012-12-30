@@ -4,9 +4,7 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.CanvasRenderer = function ()
-{
+flux.CanvasRenderer = function () {
     flux.Renderer.call(this);
 };
-flux.CanvasRenderer.prototype = extend(new flux.Renderer,
-{});
+flux.CanvasRenderer.prototype = extend(new flux.Renderer, {});

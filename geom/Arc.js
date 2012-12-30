@@ -4,12 +4,10 @@
  * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
  */
 
-flux.Arc = function (a, b, color, width)
-{
+flux.Arc = function (a, b, color, width) {
     this._super_.call(this, a, b, color, width);
 };
 
-flux.Arc.prototype = extend(flux.Line,
-{
+flux.Arc.prototype = extend(flux.Line, {
 
-    });
+});
