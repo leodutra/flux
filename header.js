@@ -40,7 +40,7 @@ var flux = {};
     }
 
     function clamp(n, min, max) {
-        return min < n ? n < max ? n : max : min;
+        return n < min ? min : n > max ? max : n;
     }
 
     function randomFrom(min, max) {
