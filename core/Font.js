@@ -5,7 +5,7 @@
  */
 
 
-flux.Font = function () {};
+flux.Font = Function;
 
 flux.Font.prototype = {
     size: 10,
