@@ -1,5 +1,5 @@
-![](/visual/flux_logo.jpg) Flux 
-==============================================================
+![](/visual/flux_logo.jpg)
+==========================
 
 ## 2D graphic Library for JavaScript and HTML5
 
