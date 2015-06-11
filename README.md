@@ -1,19 +1,19 @@
 ![](/visual/flux_logo.jpg)
 ==========================
 
-## 2D graphic Library for JavaScript and HTML5
+### 2D graphic Library for JavaScript and HTML5
 
 
 
-### Objective:
+#### Objective:
 *Create a very fast, easy and light engine, for "HTML5 Canvas".
 <br />
-### So, why Flux:
+#### So, why Flux:
 There are great projects around HTML5, SVG, WebGL and some other new stuff. Some are doing a very nice work; [https://github.com/mrdoob/three.js three.js] ([http://mrdoob.com Mr.Doob]) is one of them.
 
 But most of these projects aim more than one of these technologies. Flux will focus only on HTML5 Canvas Element. Flux shall be a base for many other amazing projects.
 <br />
-### More:
+#### More:
 
 *Focus:*
 
@@ -53,7 +53,7 @@ But most of these projects aim more than one of these technologies. Flux will fo
 + [http://jsperf.com/ jsPerf]
 
 <br/>
-#### Games, experiments and some more (not using Flux, yet...)
+##### Games, experiments and some more (not using Flux, yet...)
 
 + [http://www.canvasdemos.com/type/games/]
 + [http://canvasrider.com/]
