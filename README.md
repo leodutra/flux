@@ -6,7 +6,7 @@
 
 
 #### Objective:
-*Create a very fast, easy and light engine, for "HTML5 Canvas".
+Create a very fast, easy and light engine, for "HTML5 Canvas".
 <br />
 #### So, why Flux:
 There are great projects around HTML5, SVG, WebGL and some other new stuff. Some are doing a very nice work; [https://github.com/mrdoob/three.js three.js] ([http://mrdoob.com Mr.Doob]) is one of them.
