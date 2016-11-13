@@ -38,25 +38,25 @@ But most of these projects aim more than one of these technologies. Flux will fo
 <br />
 *References:*
 
-+ [https://github.com/erincatto/Box2D Box2D]
-+ [https://github.com/jadell/box2dnode Box2DNode]
-+ [https://github.com/hecht-software/box2dweb Box2DWeb]
-+ [http://www.box2dflash.org/ Box2DFlash]
-+ [https://github.com/slembcke/Chipmunk2D Chipmunk]
-+ [http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/ ActionScript 3 API].
-+ [http://code.google.com/p/renderengine/]
++ (Box2D)[https://github.com/erincatto/Box2D)
++ (Box2DNode)[https://github.com/jadell/box2dnode)
++ (Box2DWeb)[https://github.com/hecht-software/box2dweb)
++ (Box2DFlash)[http://www.box2dflash.org/)
++ (Chipmunk)[https://github.com/slembcke/Chipmunk2D)
++ (Flash/ActionScript 3 API)[http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/)
++ (renderengine)[http://code.google.com/p/)]
 
-+ [http://badassjs.com/ Badass JavaScript]
-+ [http://html5gamer.com/ HTML5Gamer]
-+ [http://w3schools.com/ W3Schools] 
-+ [http://jsperf.com/ jsPerf]
++ (Badass JavaScript)[http://badassjs.com/)
++ (HTML5Gamer)[http://html5gamer.com/)
++ (W3Schools)[http://w3schools.com/)
++ (jsPerf)[http://jsperf.com/)
 
 <br/>
 ##### Games, experiments and some more (not using Flux, yet...)
 
-+ [http://www.canvasdemos.com/type/games/]
-+ [http://canvasrider.com/]
-+ [http://hakim.se/experiments/]
++ http://www.canvasdemos.com/type/games/
++ http://canvasrider.com/
++ http://hakim.se/experiments/
 
 <br />
 *This is a project developed in spare time. Wanna join and build it faster? Get inspired and welcome on board!*
