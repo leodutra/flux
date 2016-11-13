@@ -38,18 +38,17 @@ But most of these projects aim more than one of these technologies. Flux will fo
 <br />
 *References:*
 
-+ [http://code.google.com/p/box2d Box2D]
++ [https://github.com/erincatto/Box2D Box2D]
 + [https://github.com/jadell/box2dnode Box2DNode]
-+ [http://code.google.com/p/box2dweb/ Box2DWeb]
++ [https://github.com/hecht-software/box2dweb Box2DWeb]
 + [http://www.box2dflash.org/ Box2DFlash]
-+ [http://code.google.com/p/chipmunk-physics/ Chipmunk]
-+ [http://code.google.com/p/glaze/ Glaze]
++ [https://github.com/slembcke/Chipmunk2D Chipmunk]
 + [http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/ ActionScript 3 API].
 + [http://code.google.com/p/renderengine/]
 
 + [http://badassjs.com/ Badass JavaScript]
 + [http://html5gamer.com/ HTML5Gamer]
-+ [http://w3schools.com/ W3Schools]
++ [http://w3schools.com/ W3Schools] 
 + [http://jsperf.com/ jsPerf]
 
 <br/>
