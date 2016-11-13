@@ -1,23 +1,16 @@
-/*
- * Flux JavaScript Library
- * Copyright (c) 2010 Leonardo Dutra Constancio
- * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
- */
-
-flux.Displayable = function () {
-    this._super_.call(this);
-    this.transform = null;
+function Displayable() {
+    this.transform = null
     // TODO adjust transform for HTML5 Canvas
-    this.composite = flux.CompositeMode.SOURCE_OVER;
+    this.composite = CompositeMode.SOURCE_OVER
     // ~= AS3 blendMode
-    // this.graphics = new flux.Graphics();
+    // this.graphics = new Graphics()
     // TODO cacheAsBitmap (AS3)?
     // TODO filters?
     // TODO mask?
-};
+}
 
-flux.Displayable.prototype = extend(flux.Node, {
+Displayable.prototype = extend(Node, {
     draw: function (context, globals) {
 
     }
-});
+})

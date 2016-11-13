@@ -1,15 +1,9 @@
-/*
- * Flux JavaScript Library
- * Copyright (c) 2010 Leonardo Dutra Constancio
- * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
- */
+function Sprite(width, height) {
+    this._super_.call(this)
+}
 
-flux.Sprite = function (width, height) {
-    this._super_.call(this);
-};
-
-flux.Sprite.prototype = extend(flux.CanvasWrap, {
+Sprite.prototype = extend(CanvasWrap, {
     draw: function (context, globals) {
         // TODO DRAW OVERRIDE
     }
-});
+})

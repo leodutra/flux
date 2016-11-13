@@ -1,15 +1,9 @@
-/*
- * Flux JavaScript Library
- * Copyright (c) 2010 Leonardo Dutra Constancio
- * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
- */
+function Shape() {
+    this._super_.call(this)
+}
 
-flux.Shape = function () {
-    this._super_.call(this);
-};
-
-flux.Shape.prototype = extend(flux.Displayable, {
+Shape.prototype = extend(Displayable, {
     draw: function (context, globals) {
 
     }
-});
+})

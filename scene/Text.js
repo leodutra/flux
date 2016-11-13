@@ -1,23 +1,13 @@
-/*
- * Flux JavaScript Library
- * Copyright (c) 2010 Leonardo Dutra Constancio
- * MIT License (http://jsflux.googlecode.com/svn/trunk/mit-license.txt)
- */
+function Text(value, font, align, baseline) {
+    this._super_.call(this)
+    this.font = font || new Font()
+    this.align = 'start'
+    this.baseline = 'alphabetic'
+    this.value = ''
+}
 
-flux.Text = function (value, font, align, baseline) {
-    this._super_.call(this);
-    this.font = font || new flux.Font();
-};
-
-flux.Text.prototype = extend(flux.Displayable, {
-
-    font: null,
-    align: 'start',
-    baseline: 'alphabetic',
-    value: '',
-
-
+Text.prototype = extend(Displayable, {
     draw: function (context, globals) {
         // TODO DRAW OVERRIDE
     }
-});
+})
