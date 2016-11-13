@@ -1,4 +1,4 @@
-![](/visual/logo.jpg)
+![](/visual/flux_logo.jpg)
 ==========================
 
 ### 2D graphic Library for JavaScript and HTML5
@@ -19,7 +19,7 @@ But most of these projects aim more than one of these technologies. Flux will fo
 
 + physics: soft and rigid bodies, joints, fluids, collision and more (similar to Box2D)
 + lightweight and fast scene graph (rendering organization too)
-+ scalable viewport 
++ scalable viewport
 + general graphic effects (blur, etc)
 + mouse events and panning
 + very fast and lightweight code
